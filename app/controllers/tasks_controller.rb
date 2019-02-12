@@ -11,7 +11,6 @@ class TasksController < ApplicationController
   end
   def edit
     @task = Task.find(params[:id])
-    @task.edit(task_params)
 #now redirect
   end
   def update
