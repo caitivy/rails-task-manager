@@ -15,18 +15,20 @@ class TasksController < ApplicationController
   end
   def update
   @task = Task.find(params[:id])
+
   @task.update(task_params)
+  redirect_to task_path(@task)
   end
 
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
 
-    redirect_to task_path
+    redirect_to tasks_path
   end
 
   private
-   def restaurant_params
+   def task_params
     # *Strong params*: You need to *whitelist* what can be updated by the user
     # Never trust user data!
     params.require(:task).permit(:title, :details)
