@@ -11,15 +11,19 @@ class TasksController < ApplicationController
   end
   def edit
     @task = Task.find(params[:id])
-
-    @task.update(task_params)
-
+    @task.edit(task_params)
 #now redirect
-    direct_to task_path(@task)
+  end
+  def update
+  @task = Task.find(params[:id])
+  @task.update(task_params)
   end
 
-
   def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+
+    redirect_to task_path
   end
 
   private

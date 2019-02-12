@@ -1,3 +1,5 @@
 <%= @task.title %>
 <%= @task.details %>
-
+<%= link_to "Delete", task_path(@task),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
